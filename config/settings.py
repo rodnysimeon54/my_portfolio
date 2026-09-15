@@ -14,6 +14,13 @@ ALLOWED_HOSTS = config(
     default='127.0.0.1,localhost'
 ).split(',')
 
+RENDER_EXTERNAL_HOSTNAME = config(
+    'RENDER_EXTERNAL_HOSTNAME',
+    default=''
+)
+
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
