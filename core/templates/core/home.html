@@ -1,0 +1,3285 @@
+```html
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    Rodny Siméon | Informaticien & Créateur Digital
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================================================
+     MESSAGES DJANGO
+========================================================= -->
+
+{% if messages %}
+
+<section class="django-messages">
+
+    <div class="container">
+
+        {% for message in messages %}
+
+            <div
+                class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show"
+                role="alert"
+            >
+
+                <div class="d-flex align-items-center">
+
+                    {% if message.tags == 'success' %}
+
+                        <i class="bi bi-check-circle-fill me-2"></i>
+
+                    {% elif message.tags == 'error' %}
+
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+
+                    {% else %}
+
+                        <i class="bi bi-info-circle-fill me-2"></i>
+
+                    {% endif %}
+
+                    <span>
+                        {{ message }}
+                    </span>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Fermer"
+                ></button>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<section class="hero" id="accueil">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-7">
+
+                <div class="hero-small-title">
+                    Bienvenue sur mon portfolio
+                </div>
+
+                <h1>
+                    Je suis
+                    <span>ING. Rodny Siméon</span>
+                </h1>
+
+                <h2 class="mb-4 fw-bold">
+                    Informaticien • Développeur Web
+                    • Graphiste
+                </h2>
+
+                <p class="hero-description">
+                    Je transforme les idées en solutions numériques
+                    modernes et professionnelles. Je combine le
+                    développement web, le design graphique, la
+                    maintenance informatique et les systèmes & réseaux
+                    pour créer des solutions adaptées aux besoins
+                    de mes clients.
+                </p>
+
+
+                <!-- BUTTONS -->
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projet-fin-etudes"
+                        class="btn-primary-custom"
+                    >
+                        <i class="bi bi-folder2-open me-2"></i>
+                        Voir mon projet
+                    </a>
+
+                    <a
+                        href="#contact"
+                        class="btn-outline-custom"
+                    >
+                        <i class="bi bi-chat-dots me-2"></i>
+                        Me contacter
+                    </a>
+
+                </div>
+
+
+                <!-- SOCIAL NETWORKS -->
+
+                <div class="hero-socials mt-4">
+
+                    <span class="me-3 text-muted">
+                        Me retrouver :
+                    </span>
+
+
+                    <!-- GITHUB -->
+
+                    <a
+                        href="https://github.com/rodnysimeon54"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        title="Mon GitHub"
+                        class="me-3"
+                    >
+                        <i class="bi bi-github fs-4"></i>
+                    </a>
+
+
+                    <!-- LINKEDIN -->
+
+                    <a
+                        href="#"
+                        aria-label="LinkedIn"
+                        title="Mon LinkedIn"
+                        class="me-3"
+                    >
+                        <i class="bi bi-linkedin fs-4"></i>
+                    </a>
+
+
+                    <!-- WHATSAPP -->
+
+                    <a
+                        href="https://wa.me/50941472342?text=Bonjour%20Rodny%2C%20je%20viens%20de%20visiter%20votre%20portfolio%20et%20j%27aimerais%20%C3%A9changer%20avec%20vous."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="WhatsApp"
+                        title="Me contacter sur WhatsApp"
+                    >
+                        <i class="bi bi-whatsapp fs-4"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO IMAGE -->
+
+            <div class="col-lg-5">
+
+                <div class="hero-card">
+
+                    <div class="hero-image">
+
+                        <img
+                            src="{% static 'images/profile.jpg' %}"
+                            alt="Rodny Siméon"
+                            class="profile-image"
+                        >
+
+                    </div>
+
+                    <div class="experience-card">
+
+                        <strong>4+</strong>
+
+                        <small>
+                            Domaines de compétences
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES PREVIEW
+========================================================= -->
+
+<section class="quick-services">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <!-- DEVELOPMENT -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-mini">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <h5>
+                        Développement Web
+                    </h5>
+
+                    <p>
+                        Création de sites et applications web
+                        modernes avec Python, Django, HTML, CSS
+                        et JavaScript.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESIGN -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-mini">
+
+                    <i class="bi bi-palette"></i>
+
+                    <h5>
+                        Design Graphique
+                    </h5>
+
+                    <p>
+                        Création de logos, affiches, flyers,
+                        visuels et identités graphiques.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAINTENANCE -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-mini">
+
+                    <i class="bi bi-pc-display"></i>
+
+                    <h5>
+                        Dépannage Informatique
+                    </h5>
+
+                    <p>
+                        Diagnostic, installation Windows,
+                        logiciels, pilotes et optimisation
+                        des ordinateurs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SYSTEMS -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="service-mini">
+
+                    <i class="bi bi-diagram-3"></i>
+
+                    <h5>
+                        Systèmes & Réseaux
+                    </h5>
+
+                    <p>
+                        Windows Server, Active Directory,
+                        DNS, DHCP et configuration réseau.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     À PROPOS
+========================================================= -->
+
+<section
+    class="about-section py-5"
+    id="apropos"
+>
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-5">
+
+                <div class="about-image">
+
+                    <img
+                        src="{% static 'images/about.jpg' %}"
+                        alt="Rodny Siméon - À propos de moi"
+                        class="about-profile-image"
+                    >
+
+                    <div class="about-badge">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <span>
+                            Disponible pour projets
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TEXT -->
+
+            <div class="col-lg-7">
+
+                <div class="section-label">
+                    À PROPOS DE MOI
+                </div>
+
+                <h2 class="section-title">
+
+                    Je transforme les idées en
+                    <span>solutions numériques.</span>
+
+                </h2>
+
+                <p class="about-text">
+
+                    Je suis Rodny Siméon, passionné par
+                    l'informatique, le développement web,
+                    le design graphique et les technologies
+                    numériques.
+
+                </p>
+
+                <p class="about-text">
+
+                    Mon objectif est de concevoir des solutions
+                    simples, modernes, efficaces et adaptées
+                    aux besoins des particuliers, entreprises
+                    et organisations.
+
+                </p>
+
+                <p class="about-text">
+
+                    Je développe progressivement mes compétences
+                    dans l'administration des systèmes Windows
+                    et des réseaux informatiques afin de pouvoir
+                    proposer des services techniques complets.
+
+                </p>
+
+
+                <!-- INFORMATION CARDS -->
+
+                <div class="row g-3 about-info">
+
+
+                    <div class="col-sm-6">
+
+                        <div class="about-info-card">
+
+                            <i class="bi bi-code-square"></i>
+
+                            <div>
+
+                                <strong>
+                                    Développement
+                                </strong>
+
+                                <small>
+                                    Python • Django • JavaScript
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                        <div class="about-info-card">
+
+                            <i class="bi bi-brush"></i>
+
+                            <div>
+
+                                <strong>
+                                    Design graphique
+                                </strong>
+
+                                <small>
+                                    Photoshop • Illustrator • Canva
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                        <div class="about-info-card">
+
+                            <i class="bi bi-tools"></i>
+
+                            <div>
+
+                                <strong>
+                                    Maintenance
+                                </strong>
+
+                                <small>
+                                    Diagnostic • Windows • Hardware
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                        <div class="about-info-card">
+
+                            <i class="bi bi-hdd-network"></i>
+
+                            <div>
+
+                                <strong>
+                                    Systèmes & Réseaux
+                                </strong>
+
+                                <small>
+                                    Windows Server • DNS • DHCP
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-4">
+
+                    <a
+                        href="#contact"
+                        class="btn-primary-custom"
+                    >
+
+                        Parlons de votre projet
+
+                        <i class="bi bi-arrow-right ms-2"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COMPÉTENCES
+========================================================= -->
+
+<section
+    class="skills-section py-5"
+    id="competences"
+>
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <div class="section-label">
+                MES COMPÉTENCES
+            </div>
+
+            <h2 class="section-title">
+
+                Des compétences
+                <span>techniques et créatives</span>
+
+            </h2>
+
+            <p class="section-description mx-auto">
+
+                Je combine informatique, développement,
+                design et administration des systèmes pour
+                créer des solutions complètes.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- DEVELOPMENT -->
+
+            <div class="col-lg-6">
+
+                <div class="skill-card h-100">
+
+                    <div class="skill-card-header">
+
+                        <div class="skill-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Développement Web
+                            </h4>
+
+                            <p>
+                                Création d'applications et
+                                sites web modernes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>85%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:85%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+                            <span>Django</span>
+                            <span>80%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:80%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+                            <span>HTML / CSS</span>
+                            <span>90%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:90%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>70%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:70%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESIGN -->
+
+            <div class="col-lg-6">
+
+                <div class="skill-card h-100">
+
+                    <div class="skill-card-header">
+
+                        <div class="skill-icon">
+                            <i class="bi bi-palette"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Design Graphique
+                            </h4>
+
+                            <p>
+                                Création visuelle et identité
+                                graphique.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+                            <span>Adobe Photoshop</span>
+                            <span>90%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:90%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+                            <span>Adobe Illustrator</span>
+                            <span>85%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:85%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+                            <span>Canva</span>
+                            <span>90%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:90%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+                            <span>Identité visuelle</span>
+                            <span>85%</span>
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:85%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAINTENANCE -->
+
+            <div class="col-lg-6">
+
+                <div class="skill-card h-100">
+
+                    <div class="skill-card-header">
+
+                        <div class="skill-icon">
+                            <i class="bi bi-tools"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Maintenance Informatique
+                            </h4>
+
+                            <p>
+                                Diagnostic et dépannage
+                                informatique.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+
+                            <span>
+                                Diagnostic informatique
+                            </span>
+
+                            <span>90%</span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:90%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+
+                            <span>
+                                Installation Windows
+                            </span>
+
+                            <span>90%</span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:90%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+
+                            <span>
+                                Installation logiciels
+                            </span>
+
+                            <span>90%</span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:90%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+
+                            <span>
+                                Optimisation PC
+                            </span>
+
+                            <span>85%</span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:85%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SYSTEMES & RESEAUX -->
+
+            <div class="col-lg-6">
+
+                <div class="skill-card h-100">
+
+                    <div class="skill-card-header">
+
+                        <div class="skill-icon">
+                            <i class="bi bi-hdd-network"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Systèmes & Réseaux
+                            </h4>
+
+                            <p>
+                                Administration et
+                                infrastructure réseau.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+
+                            <span>
+                                Windows Server
+                            </span>
+
+                            <span>75%</span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:75%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+
+                            <span>
+                                Active Directory
+                            </span>
+
+                            <span>70%</span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:70%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+
+                            <span>
+                                DNS / DHCP
+                            </span>
+
+                            <span>70%</span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:70%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-item">
+
+                        <div class="skill-info">
+
+                            <span>
+                                Réseaux TCP/IP
+                            </span>
+
+                            <span>75%</span>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-bar"
+                                style="width:75%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJET DE FIN D'ÉTUDES
+========================================================= -->
+
+<section
+    class="projects-section py-5"
+    id="projet-fin-etudes"
+>
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <div class="section-label">
+                PROJET ACADÉMIQUE
+            </div>
+
+            <h2 class="section-title">
+
+                Mon projet de
+                <span>fin d'études</span>
+
+            </h2>
+
+            <p class="section-description mx-auto">
+
+                Une réalisation concrète développée en équipe
+                dans le cadre de ma formation professionnelle.
+
+            </p>
+
+        </div>
+
+
+        <div class="featured-project">
+
+            <div class="row align-items-center g-5">
+
+
+                <!-- PROJECT IMAGE -->
+
+                <div class="col-lg-6">
+
+                    <div class="project-image-wrapper">
+
+                        <img
+                            src="{% static 'images/projects/geslog.jpg' %}"
+                            alt="GESLOG - Système de gestion pour le Centre de Formation SOS Villages d'Enfants"
+                            class="geslog-project-image"
+                        >
+
+                        <div class="project-image-overlay">
+
+                            <span>
+
+                                <i class="bi bi-mortarboard-fill me-2"></i>
+
+                                Projet de fin d'études
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT CONTENT -->
+
+                <div class="col-lg-6">
+
+                    <div class="project-content">
+
+                        <span class="project-category">
+                            PROJET DE FIN D'ÉTUDES
+                        </span>
+
+
+                        <h4>
+                            GESLOG
+                        </h4>
+
+
+                        <h4>
+                            Système de gestion pour le
+                            Centre de Formation
+                            SOS Villages d'Enfants
+                        </h4>
+
+
+                        <p>
+
+                            <strong>GESLOG</strong> est mon projet
+                            de fin d'études, réalisé en groupe de
+                            <strong>3 étudiants</strong> dans le cadre
+                            de notre formation professionnelle.
+
+                        </p>
+
+
+                        <p>
+
+                            L'objectif du projet était de concevoir
+                            une solution informatique permettant
+                            d'améliorer la gestion et l'organisation
+                            des activités du
+                            <strong>
+                                Centre de Formation SOS Villages d'Enfants
+                            </strong>.
+
+                        </p>
+
+
+                        <p>
+
+                            Ce projet nous a permis de mettre en
+                            pratique nos connaissances en analyse,
+                            conception, développement d'applications,
+                            gestion de bases de données et travail
+                            en équipe.
+
+                        </p>
+
+
+                        <div class="project-meta">
+
+
+                            <div class="meta-item">
+
+                                <i class="bi bi-people-fill"></i>
+
+                                <div>
+
+                                    <small>
+                                        Équipe
+                                    </small>
+
+                                    <strong>
+                                        3 étudiants
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="meta-item">
+
+                                <i class="bi bi-award-fill"></i>
+
+                                <div>
+
+                                    <small>
+                                        Type
+                                    </small>
+
+                                    <strong>
+                                        Projet académique
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="meta-item">
+
+                                <i class="bi bi-building"></i>
+
+                                <div>
+
+                                    <small>
+                                        Structure
+                                    </small>
+
+                                    <strong>
+                                        SOS Villages d'Enfants
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-tags">
+
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Base de données</span>
+
+                        </div>
+
+
+                        <a
+                            href="#contact"
+                            class="btn-primary-custom mt-4"
+                        >
+
+                            <i class="bi bi-info-circle me-2"></i>
+
+                            En savoir plus
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GALERIE PROFESSIONNELLE
+========================================================= -->
+
+<section
+    class="gallery-section py-5"
+    id="galerie"
+>
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <div class="section-label">
+                MES RÉALISATIONS
+            </div>
+
+            <h2 class="section-title">
+
+                Une sélection de mes
+                <span>travaux</span>
+
+            </h2>
+
+            <p class="section-description mx-auto">
+
+                Découvrez quelques-unes de mes réalisations dans
+                le développement web, le design graphique et les
+                solutions informatiques.
+
+            </p>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="gallery-filters mb-5">
+
+            <button
+                type="button"
+                class="gallery-filter active"
+                data-filter="all"
+            >
+                Tous
+            </button>
+
+            <button
+                type="button"
+                class="gallery-filter"
+                data-filter="web"
+            >
+                Développement Web
+            </button>
+
+            <button
+                type="button"
+                class="gallery-filter"
+                data-filter="design"
+            >
+                Design Graphique
+            </button>
+
+            <button
+                type="button"
+                class="gallery-filter"
+                data-filter="maintenance"
+            >
+                Maintenance & Réseaux
+            </button>
+
+        </div>
+
+
+        <!-- GALLERY GRID -->
+
+        <div class="row g-4 gallery-grid">
+
+
+            <!-- GESLOG -->
+
+            <div
+                class="col-lg-4 col-md-6 gallery-item"
+                data-category="web"
+            >
+
+                <div class="gallery-card">
+
+                    <div class="gallery-image">
+
+                        <img
+                            src="{% static 'images/projects/geslog.jpg' %}"
+                            alt="GESLOG - Projet de fin d'études"
+                        >
+
+                        <div class="gallery-overlay">
+
+                            <span class="gallery-category">
+                                Développement Web
+                            </span>
+
+                            <button
+                                type="button"
+                                class="gallery-view"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal"
+                                data-image="{% static 'images/projects/geslog.jpg' %}"
+                                data-title="GESLOG"
+                                data-description="Système de gestion développé dans le cadre de mon projet de fin d'études."
+                            >
+
+                                <i class="bi bi-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-content">
+
+                        <h3>
+                            GESLOG
+                        </h3>
+
+                        <p>
+                            Projet de fin d'études
+                        </p>
+
+                        <div class="gallery-tags">
+
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>MySQL</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESIGN -->
+
+            <div
+                class="col-lg-4 col-md-6 gallery-item"
+                data-category="design"
+            >
+
+                <div class="gallery-card">
+
+                    <div class="gallery-image">
+
+                        <img
+                            src="{% static 'images/projects/CFPA.jpg' %}"
+                            alt="Projet de design graphique"
+                        >
+
+                        <div class="gallery-overlay">
+
+                            <span class="gallery-category">
+                                Design Graphique
+                            </span>
+
+                            <button
+                                type="button"
+                                class="gallery-view"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal"
+                                data-image="{% static 'images/projects/CFPA.jpg' %}"
+                                data-title="Design graphique"
+                                data-description="Création graphique et communication visuelle."
+                            >
+
+                                <i class="bi bi-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-content">
+
+                        <h3>
+                            Design graphique
+                        </h3>
+
+                        <p>
+                            Création visuelle
+                        </p>
+
+                        <div class="gallery-tags">
+
+                            <span>Photoshop</span>
+                            <span>Illustrator</span>
+                            <span>Canva</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEB -->
+
+            <div
+                class="col-lg-4 col-md-6 gallery-item"
+                data-category="web"
+            >
+
+                <div class="gallery-card">
+
+                    <div class="gallery-image">
+
+                        <img
+                            src="{% static 'images/projects/ECEJB.jpg' %}"
+                            alt="Projet de développement web"
+                        >
+
+                        <div class="gallery-overlay">
+
+                            <span class="gallery-category">
+                                Développement Web
+                            </span>
+
+                            <button
+                                type="button"
+                                class="gallery-view"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal"
+                                data-image="{% static 'images/projects/ECEJB.jpg' %}"
+                                data-title="Développement Web"
+                                data-description="Conception d'une interface web moderne et responsive."
+                            >
+
+                                <i class="bi bi-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-content">
+
+                        <h3>
+                            Développement Web
+                        </h3>
+
+                        <p>
+                            Interface moderne
+                        </p>
+
+                        <div class="gallery-tags">
+
+                            <span>Django</span>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAINTENANCE -->
+
+            <div
+                class="col-lg-4 col-md-6 gallery-item"
+                data-category="maintenance"
+            >
+
+                <div class="gallery-card">
+
+                    <div class="gallery-image">
+
+                        <img
+                            src="{% static 'images/projects/OIP.webp' %}"
+                            alt="Maintenance informatique"
+                        >
+
+                        <div class="gallery-overlay">
+
+                            <span class="gallery-category">
+                                Maintenance
+                            </span>
+
+                            <button
+                                type="button"
+                                class="gallery-view"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal"
+                                data-image="{% static 'images/projects/OIP.webp' %}"
+                                data-title="Maintenance informatique"
+                                data-description="Diagnostic, installation et optimisation des systèmes informatiques."
+                            >
+
+                                <i class="bi bi-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-content">
+
+                        <h3>
+                            Maintenance informatique
+                        </h3>
+
+                        <p>
+                            Diagnostic & dépannage
+                        </p>
+
+                        <div class="gallery-tags">
+
+                            <span>Windows</span>
+                            <span>Maintenance</span>
+                            <span>Réseaux</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GALERIE MODAL
+========================================================= -->
+
+<div
+    class="modal fade"
+    id="galleryModal"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+        <div class="modal-content gallery-modal">
+
+            <button
+                type="button"
+                class="gallery-modal-close"
+                data-bs-dismiss="modal"
+                aria-label="Fermer"
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+
+            <div class="row g-0 align-items-center">
+
+                <div class="col-lg-8">
+
+                    <div class="gallery-modal-image">
+
+                        <img
+                            id="galleryModalImage"
+                            src=""
+                            alt=""
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4">
+
+                    <div class="gallery-modal-content">
+
+                        <span>
+                            RÉALISATION
+                        </span>
+
+                        <h3 id="galleryModalTitle"></h3>
+
+                        <p id="galleryModalDescription"></p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    class="contact-section py-5"
+    id="contact"
+>
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <div class="text-center mb-5">
+
+            <div class="section-label">
+                CONTACT
+            </div>
+
+            <h2 class="section-title">
+
+                Travaillons
+                <span>ensemble</span>
+
+            </h2>
+
+            <p class="section-description mx-auto">
+
+                Vous avez une question, un projet ou besoin
+                d'une assistance informatique ? N'hésitez pas
+                à me contacter.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-5">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="col-lg-5">
+
+                <div class="contact-info">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Email
+                            </h5>
+
+                            <p>
+
+                                <a
+                                    href="mailto:rodnysimeon54@gmail.com"
+                                    class="text-decoration-none"
+                                >
+                                    rodnysimeon54@gmail.com
+                                </a>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TELEPHONE / WHATSAPP -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Téléphone
+                            </h5>
+
+                            <p>
+
+                                <a
+                                    href="https://wa.me/50941472342?text=Bonjour%20Rodny%2C%20je%20viens%20de%20visiter%20votre%20portfolio%20et%20j%27aimerais%20%C3%A9changer%20avec%20vous."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-decoration-none"
+                                >
+                                    +509 4147-2342
+                                </a>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOCALISATION -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Localisation
+                            </h5>
+
+                            <p>
+                                Haïti
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DISPONIBILITE -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Disponibilité
+                            </h5>
+
+                            <p>
+                                Disponible pour projets
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SOCIALS -->
+
+                    <div class="contact-socials mt-4">
+
+
+                        <!-- GITHUB -->
+
+                        <a
+                            href="https://github.com/rodnysimeon54"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            title="Mon GitHub"
+                        >
+                            <i class="bi bi-github"></i>
+                        </a>
+
+
+                        <!-- LINKEDIN -->
+
+                        <a
+                            href="#"
+                            aria-label="LinkedIn"
+                            title="Mon LinkedIn"
+                        >
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+
+
+                        <!-- WHATSAPP -->
+
+                        <a
+                            href="https://wa.me/50941472342?text=Bonjour%20Rodny%2C%20je%20viens%20de%20visiter%20votre%20portfolio%20et%20j%27aimerais%20%C3%A9changer%20avec%20vous."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp"
+                            title="Me contacter sur WhatsApp"
+                        >
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+
+                        <!-- FACEBOOK -->
+
+                        <a
+                            href="https://web.facebook.com/profile.php?id=100077513678872"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                            title="Mon Facebook"
+                        >
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTACT FORM
+            ================================================= -->
+
+            <div class="col-lg-7">
+
+                <div class="contact-form">
+
+                    <form
+                        method="POST"
+                        action="{% url 'home' %}"
+                    >
+
+                        {% csrf_token %}
+
+
+                        <div class="row g-3">
+
+
+                            <!-- NOM -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="name"
+                                    class="form-label"
+                                >
+                                    Nom complet
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Votre nom"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="email"
+                                    class="form-label"
+                                >
+                                    Adresse email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    name="email"
+                                    placeholder="votre@gmail.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- SUJET -->
+
+                            <div class="col-12">
+
+                                <label
+                                    for="subject"
+                                    class="form-label"
+                                >
+                                    Sujet
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="subject"
+                                    name="subject"
+                                    placeholder="Sujet de votre message"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- MESSAGE -->
+
+                            <div class="col-12">
+
+                                <label
+                                    for="message"
+                                    class="form-label"
+                                >
+                                    Message
+                                </label>
+
+                                <textarea
+                                    class="form-control"
+                                    id="message"
+                                    name="message"
+                                    rows="6"
+                                    placeholder="Écrivez votre message..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <!-- BUTTON -->
+
+                            <div class="col-12">
+
+                                <button
+                                    type="submit"
+                                    class="btn-primary-custom border-0"
+                                >
+
+                                    <i class="bi bi-send-fill me-2"></i>
+
+                                    Envoyer le message
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+<!-- =========================================================
+     EXTRA CSS
+========================================================= -->
+
+{% block extra_css %}
+
+<style>
+
+/* =========================================================
+   DJANGO MESSAGES
+========================================================= */
+
+.django-messages {
+
+    position: relative;
+
+    z-index: 1000;
+
+    padding-top: 20px;
+
+}
+
+.django-messages .alert {
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 15px 20px;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.06);
+
+}
+
+.django-messages .alert-success {
+
+    background: #eaf7ef;
+
+    color: #25633a;
+
+}
+
+.django-messages .alert-danger {
+
+    background: #fcecec;
+
+    color: #8b2d2d;
+
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.profile-image {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+
+}
+
+.hero-image:hover .profile-image {
+
+    transform: scale(1.03);
+
+}
+
+
+/* =========================================================
+   HERO SOCIALS
+========================================================= */
+
+.hero-socials a {
+
+    color: #707079;
+    transition: all 0.3s ease;
+
+}
+
+.hero-socials a:hover {
+
+    color: #18181c;
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================================
+   ABOUT INFO CARDS
+========================================================= */
+
+.about-info-card {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    background: #ffffff;
+    height: 100%;
+    transition: all 0.3s ease;
+
+}
+
+.about-info-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.06);
+
+}
+
+.about-info-card > i {
+
+    font-size: 25px;
+    color: #707079;
+
+}
+
+.about-info-card strong {
+
+    display: block;
+    font-size: 14px;
+    color: #18181c;
+    margin-bottom: 4px;
+
+}
+
+.about-info-card small {
+
+    display: block;
+    color: #777780;
+    font-size: 12px;
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   SKILL CARD
+========================================================= */
+
+.skill-card {
+
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+
+}
+
+.skill-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0, 0, 0, 0.07);
+
+}
+
+.skill-card-header {
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+
+}
+
+.skill-card-header h4 {
+
+    margin: 0 0 5px;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+.skill-card-header p {
+
+    margin: 0;
+    color: #777780;
+    font-size: 13px;
+
+}
+
+.skill-icon {
+
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #f1f1f3;
+    color: #707079;
+    font-size: 25px;
+
+}
+
+.skill-item {
+
+    margin-bottom: 22px;
+
+}
+
+.skill-item:last-child {
+
+    margin-bottom: 0;
+
+}
+
+.skill-info {
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+.skill-info span:last-child {
+
+    color: #707079;
+
+}
+
+.progress {
+
+    height: 7px;
+    background: #eeeeef;
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+
+.progress-bar {
+
+    background: #707079;
+    border-radius: 20px;
+
+}
+
+
+/* =========================================================
+   PROJET DE FIN D'ÉTUDES
+========================================================= */
+
+.featured-project {
+
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 25px;
+    padding: 45px;
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+}
+
+.featured-project:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 25px 55px
+        rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* =========================================================
+   GESLOG PROJECT IMAGE
+========================================================= */
+
+.project-image-wrapper {
+
+    position: relative;
+    width: 100%;
+    height: 430px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #eeeeef;
+    box-shadow:
+        0 18px 40px
+        rgba(0, 0, 0, 0.12);
+
+}
+
+.geslog-project-image {
+
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+
+}
+
+.featured-project:hover .geslog-project-image {
+
+    transform: scale(1.04);
+
+}
+
+.project-image-overlay {
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0)
+        );
+
+}
+
+.project-image-overlay span {
+
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 15px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    color: #55555d;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   PROJECT CONTENT
+========================================================= */
+
+.featured-project .project-content {
+
+    padding: 10px 5px;
+
+}
+
+.featured-project .project-category {
+
+    position: static;
+    display: inline-block;
+    padding: 7px 13px;
+    margin-bottom: 15px;
+    background: #f1f1f3;
+    border-radius: 20px;
+    color: #55555d;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+}
+
+.featured-project .project-content h3 {
+
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #18181c;
+
+}
+
+.featured-project .project-content h4 {
+
+    font-size: 21px;
+    line-height: 1.45;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #55555d;
+
+}
+
+.featured-project .project-content p {
+
+    color: #777780;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+
+}
+
+.featured-project .project-content p strong {
+
+    color: #55555d;
+
+}
+
+
+/* =========================================================
+   PROJECT META
+========================================================= */
+
+.project-meta {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+
+}
+
+.meta-item {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f7f7f8;
+    border-radius: 10px;
+
+}
+
+.meta-item > i {
+
+    color: #707079;
+    font-size: 18px;
+
+}
+
+.meta-item small {
+
+    display: block;
+    color: #99999f;
+    font-size: 10px;
+    margin-bottom: 3px;
+
+}
+
+.meta-item strong {
+
+    display: block;
+    color: #55555d;
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   PROJECT TAGS
+========================================================= */
+
+.project-tags {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+
+}
+
+.project-tags span {
+
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #f1f1f3;
+    color: #55555d;
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   GALERIE
+========================================================= */
+
+.gallery-section {
+
+    background: #f7f7f8;
+
+}
+
+.gallery-filters {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.gallery-filter {
+
+    border: 1px solid #e1e1e4;
+    background: #ffffff;
+    color: #55555d;
+    padding: 11px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.gallery-filter:hover,
+.gallery-filter.active {
+
+    background: #707079;
+    border-color: #707079;
+    color: #ffffff;
+
+}
+
+.gallery-card {
+
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #eeeeef;
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+
+}
+
+.gallery-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 50px
+        rgba(0, 0, 0, 0.10);
+
+}
+
+.gallery-image {
+
+    position: relative;
+    height: 270px;
+    overflow: hidden;
+    background: #eeeeef;
+
+}
+
+.gallery-image img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+
+}
+
+.gallery-card:hover .gallery-image img {
+
+    transform: scale(1.07);
+
+}
+
+.gallery-overlay {
+
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.72),
+            transparent 65%
+        );
+
+    opacity: 0;
+    transition: all 0.35s ease;
+
+}
+
+.gallery-card:hover .gallery-overlay {
+
+    opacity: 1;
+
+}
+
+.gallery-category {
+
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+}
+
+.gallery-view {
+
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #55555d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.gallery-view:hover {
+
+    background: #707079;
+    color: #ffffff;
+    transform: scale(1.08);
+
+}
+
+.gallery-content {
+
+    padding: 24px;
+
+}
+
+.gallery-content h3 {
+
+    margin: 0 0 7px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #18181c;
+
+}
+
+.gallery-content p {
+
+    margin-bottom: 15px;
+    color: #77777f;
+    font-size: 14px;
+
+}
+
+.gallery-tags {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+
+}
+
+.gallery-tags span {
+
+    background: #f2f2f4;
+    color: #55555d;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   GALERIE MODAL
+========================================================= */
+
+.gallery-modal {
+
+    position: relative;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+
+}
+
+.gallery-modal-close {
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    color: #55555d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.gallery-modal-image {
+
+    height: 600px;
+    background: #eeeeef;
+
+}
+
+.gallery-modal-image img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+.gallery-modal-content {
+
+    padding: 45px 35px;
+
+}
+
+.gallery-modal-content span {
+
+    color: #707079;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+}
+
+.gallery-modal-content h3 {
+
+    margin: 12px 0;
+    color: #18181c;
+    font-size: 30px;
+    font-weight: 700;
+
+}
+
+.gallery-modal-content p {
+
+    color: #66666e;
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-item {
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+
+}
+
+.contact-icon {
+
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #f1f1f3;
+    color: #707079;
+    font-size: 20px;
+
+}
+
+.contact-item h5 {
+
+    margin: 0 0 5px;
+    font-size: 15px;
+    font-weight: 700;
+
+}
+
+.contact-item p {
+
+    margin: 0;
+    color: #777780;
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   CONTACT SOCIALS
+========================================================= */
+
+.contact-socials {
+
+    display: flex;
+    gap: 10px;
+
+}
+
+.contact-socials a {
+
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #f1f1f3;
+    color: #55555d;
+    transition: all 0.3s ease;
+
+}
+
+.contact-socials a:hover {
+
+    background: #707079;
+    color: #ffffff;
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+.contact-form {
+
+    padding: 35px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 18px;
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.04);
+
+}
+
+.contact-form .form-label {
+
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+
+}
+
+.contact-form .form-control {
+
+    padding: 13px 15px;
+    border: 1px solid #dddddf;
+    border-radius: 8px;
+    font-size: 14px;
+
+}
+
+.contact-form .form-control:focus {
+
+    border-color: #707079;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(112, 112, 121, 0.10);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .featured-project {
+
+        padding: 30px;
+
+    }
+
+    .project-image-wrapper {
+
+        height: 350px;
+
+    }
+
+    .project-meta {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .gallery-modal-image {
+
+        height: 450px;
+
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .featured-project {
+
+        padding: 20px;
+        border-radius: 18px;
+
+    }
+
+    .project-image-wrapper {
+
+        height: 300px;
+
+    }
+
+    .featured-project .project-content h3 {
+
+        font-size: 34px;
+
+    }
+
+    .featured-project .project-content h4 {
+
+        font-size: 18px;
+
+    }
+
+    .contact-form {
+
+        padding: 25px;
+
+    }
+
+
+    .gallery-filters {
+
+        gap: 7px;
+
+    }
+
+    .gallery-filter {
+
+        padding: 9px 14px;
+        font-size: 11px;
+
+    }
+
+    .gallery-image {
+
+        height: 250px;
+
+    }
+
+    .gallery-modal-image {
+
+        height: 300px;
+
+    }
+
+    .gallery-modal-content {
+
+        padding: 30px 25px;
+
+    }
+
+}
+
+
+@media (max-width: 575px) {
+
+    .project-image-wrapper {
+
+        height: 270px;
+
+    }
+
+    .featured-project .project-content h3 {
+
+        font-size: 30px;
+
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+
+<!-- =========================================================
+     EXTRA JAVASCRIPT
+========================================================= -->
+
+{% block extra_js %}
+
+<script>
+
+/* =========================================================
+   CLOSE MOBILE NAVBAR AFTER CLICK
+========================================================= */
+
+document.querySelectorAll(
+    '.portfolio-navbar .nav-link'
+).forEach(function(link) {
+
+    link.addEventListener('click', function() {
+
+        const navbar =
+            document.getElementById('mainNavbar');
+
+        if (
+            navbar &&
+            navbar.classList.contains('show')
+        ) {
+
+            const bsCollapse =
+                bootstrap.Collapse.getInstance(navbar);
+
+            if (bsCollapse) {
+
+                bsCollapse.hide();
+
+            }
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   NAVBAR ACTIVE LINK
+========================================================= */
+
+const sections =
+    document.querySelectorAll('section[id]');
+
+const navLinks =
+    document.querySelectorAll(
+        '.portfolio-navbar .nav-link'
+    );
+
+
+window.addEventListener('scroll', function() {
+
+    let current = '';
+
+    sections.forEach(function(section) {
+
+        const sectionTop =
+            section.offsetTop - 120;
+
+        if (
+            window.scrollY >= sectionTop
+        ) {
+
+            current =
+                section.getAttribute('id');
+
+        }
+
+    });
+
+
+    navLinks.forEach(function(link) {
+
+        link.classList.remove('active');
+
+        if (
+            link.getAttribute('href') ===
+            '#' + current
+        ) {
+
+            link.classList.add('active');
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   GALERIE - FILTRES
+========================================================= */
+
+const galleryFilters =
+    document.querySelectorAll('.gallery-filter');
+
+const galleryItems =
+    document.querySelectorAll('.gallery-item');
+
+
+galleryFilters.forEach(function(filter) {
+
+    filter.addEventListener('click', function() {
+
+        galleryFilters.forEach(function(button) {
+
+            button.classList.remove('active');
+
+        });
+
+
+        this.classList.add('active');
+
+
+        const category =
+            this.getAttribute('data-filter');
+
+
+        galleryItems.forEach(function(item) {
+
+            if (
+                category === 'all' ||
+                item.getAttribute('data-category') === category
+            ) {
+
+                item.style.display = '';
+
+            } else {
+
+                item.style.display = 'none';
+
+            }
+
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   GALERIE - MODAL
+========================================================= */
+
+const galleryButtons =
+    document.querySelectorAll('.gallery-view');
+
+
+galleryButtons.forEach(function(button) {
+
+    button.addEventListener('click', function() {
+
+        const image =
+            this.getAttribute('data-image');
+
+        const title =
+            this.getAttribute('data-title');
+
+        const description =
+            this.getAttribute('data-description');
+
+
+        document.getElementById(
+            'galleryModalImage'
+        ).src = image;
+
+
+        document.getElementById(
+            'galleryModalImage'
+        ).alt = title;
+
+
+        document.getElementById(
+            'galleryModalTitle'
+        ).textContent = title;
+
+
+        document.getElementById(
+            'galleryModalDescription'
+        ).textContent = description;
+
+    });
+
+});
+
+
+/* =========================================================
+   AUTO CLOSE DJANGO MESSAGE
+========================================================= */
+
+setTimeout(function() {
+
+    const alerts =
+        document.querySelectorAll(
+            '.django-messages .alert'
+        );
+
+    alerts.forEach(function(alert) {
+
+        if (
+            typeof bootstrap !== 'undefined'
+        ) {
+
+            const bsAlert =
+                bootstrap.Alert.getOrCreateInstance(alert);
+
+            bsAlert.close();
+
+        }
+
+    });
+
+}, 7000);
+
+</script>
+
+{% endblock %}
+```
