@@ -3,11 +3,16 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-aiihc+uk%0vbpb@l_74a9jx#&$a=0(-_x3j52lqctrbcikl2h6'
+from decouple import config
 
-DEBUG = True
+SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = []
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    default='127.0.0.1,localhost'
+).split(',')
 
 
 INSTALLED_APPS = [
@@ -24,6 +29,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -75,7 +82,22 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static/'
+# ==============================
+# STATIC FILES
+# ==============================
+
+STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
@@ -111,3 +133,42 @@ EMAIL_TIMEOUT = 30
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# ==============================
+# SECURITY - PRODUCTION
+# ==============================
+
+SECURE_SSL_REDIRECT = config(
+    'SECURE_SSL_REDIRECT',
+    default=False,
+    cast=bool
+)
+
+SESSION_COOKIE_SECURE = config(
+    'SESSION_COOKIE_SECURE',
+    default=False,
+    cast=bool
+)
+
+CSRF_COOKIE_SECURE = config(
+    'CSRF_COOKIE_SECURE',
+    default=False,
+    cast=bool
+)
+
+SECURE_HSTS_SECONDS = config(
+    'SECURE_HSTS_SECONDS',
+    default=0,
+    cast=int
+)
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = config(
+    'SECURE_HSTS_INCLUDE_SUBDOMAINS',
+    default=False,
+    cast=bool
+)
+
+SECURE_HSTS_PRELOAD = config(
+    'SECURE_HSTS_PRELOAD',
+    default=False,
+    cast=bool
+)
